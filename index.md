@@ -1,10 +1,19 @@
-## Worki Architecture
+# Worki Software Architecture
 
 You can use the [editor on GitHub](https://github.com/jnino-itfactoria/worki/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## Introducción
+### Propósito
+
+El objetivo de este documento es describir la arquitectura propuesta para la
+solución. En este sentido provee:
+
+- Una fuente de referencia para todos los interesados en la solución.
+- Describe la arquitectura de la solución a través de diferentes vistas, cada una de las cuales ilustra un aspecto en particular del sistema.
+- Una visión global y comprensible del diseño general de la solución como plataforma tecnológica.
+
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
