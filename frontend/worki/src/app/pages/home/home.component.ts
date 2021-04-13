@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GeneralService } from '../../services/general.service';
+import { IGetEmployeeReq, IEmployeeRes, IUsuario } from '../../interfaces/employee';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,18 @@ import { GeneralService } from '../../services/general.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  idEmployee: string;
+  employeeReq: IGetEmployeeReq ={
+    Id : ""
+  }; 
+  employee : IUsuario;
 
-  constructor( private _generalService: GeneralService) { }
+  constructor( private _generalService: GeneralService, 
+    private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getEmployeeProfile();
+    this.idEmployee = this._activatedRoute.snapshot.params.idEmployee;
+    this.getEmployee(this.idEmployee);
   }
 
   getEmployeeProfile(){
@@ -20,12 +29,28 @@ export class HomeComponent implements OnInit {
       res=>{
         console.log("RES GET PROFILE ARRAY: ", res);
         console.log("RES GET PROFILE: ", res.Items[0].Nombre);
+        
 
       }, 
       err=>{
         console.log("RES GET PROFILE: ", err);
       })
 
+  }
+
+  getEmployee(idEmployee: string){
+    
+    this.employeeReq.Id = idEmployee;
+    
+    this._generalService.getEmployee(this.employeeReq).subscribe(
+      res=>{
+        this.employee = res.Usuario;
+        this._generalService.employee = res.Usuario;
+
+      }, 
+      err=>{
+        console.log("RES GET EPLEMEA: ", err);
+      })
 
   }
 

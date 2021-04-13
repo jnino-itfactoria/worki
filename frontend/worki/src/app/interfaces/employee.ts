@@ -11,3 +11,21 @@ export interface IEmployeeRes {
     Id: string;
     Message?: any;
   }
+
+  export interface IGetEmployeeReq {
+    Id: string;
+  }
+  export interface IGetEmployeeRes {
+    Usuario: IUsuario;
+    StatusCode: number;
+    Message?: any;
+  }
+  
+  export interface IUsuario {
+    Id: string;
+    PrimerNombre: string;
+    SegundoNombre: string;
+    DocumentoIdentidad: string;
+    Edad: number;
+    Salario: string;
+  }

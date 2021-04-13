@@ -15,7 +15,7 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
-    path: 'home',
+    path: 'home/:idEmployee',
     component: HomeComponent
   },
   {

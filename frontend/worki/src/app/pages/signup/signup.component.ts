@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
 
   signUpForm: FormGroup;
   createEmployeeOk= false;
+  idEmployee: string;
 
 
   constructor(
@@ -74,15 +75,15 @@ export class SignupComponent implements OnInit {
     });
   }
 
-
-
   onSubmit() {
     console.log("REG FORM", this.signUpForm.value);
     this._generalService.createEmployee(this.signUpForm.value).subscribe(
       res => {
         console.log("RES CREATE EMP", res);
         console.log("RES CREATE EMP ID", res.Id);
+        this.idEmployee = res.Id;
         this.createEmployeeOk = true;
+        this._router.navigate([`home/${this.idEmployee}`])
       }, 
       err => {
         console.log("ERR CREATE EMP", err);

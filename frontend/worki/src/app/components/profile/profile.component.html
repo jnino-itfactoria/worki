@@ -1,14 +1,14 @@
-<div class="container">
+<div class="card">
 
     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
         <!-- <div class="card-header">Header</div> -->
 
         <div class="card-body">
-            <h5 class="card-title">Success card title</h5>
-            <!-- <p class="card-text">{{nombre}}</p> -->
-            <p>{{nombre}}</p>
-            <p>{{direccion}}</p>
-            <p>{{telefono}}</p>
+            <h5 class="card-title">{{employee.PrimerNombre}} {{employee.SegundoNombre}}</h5>
+            <p class="card-text">Cédula: {{employee.DocumentoIdentidad}}</p>
+            <p class="card-text">Edad: {{employee.Edad}}</p>
+            <p class="card-text">Salario: {{employee.Salario | currency}}</p>
+
         </div>
     </div>
 </div>
